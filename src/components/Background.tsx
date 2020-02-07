@@ -93,7 +93,7 @@ export default function Background({ children }: Props) {
         clearInterval(cometInterval)
       }
     }
-  }, [width, height])
+  }, [width])
 
   return (
     <Fragment>
