@@ -4,11 +4,11 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "module": "esnext",
     "target": "es6",
     "jsx": "react",
     "jsxFactory": "h",
-    "types": [],
+    "resolveJsonModule": true
   }
 }
