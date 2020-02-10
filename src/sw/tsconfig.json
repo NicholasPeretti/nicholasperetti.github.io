@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "webworker",
+    ],
+    "resolveJsonModule": true,
+  },
+}
