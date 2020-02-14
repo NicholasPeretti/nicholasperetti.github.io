@@ -1,11 +1,14 @@
 {
   "name": "personal-portfolio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
-    "start": "concurrently \"yarn build -w\" \"http-server dist -p 80 -c-1 -g\""
+    "gzip": "gzip -k9nr dist",
+    "build": "NODE_ENV='production' rollup -c && yarn gzip",
+    "serve": "http-server dist -p 80 -c-1 -g",
+    "watch": "rollup -c -w",
+    "start": "concurrently \"yarn watch\" \"yarn serve\""
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -13,10 +16,9 @@
     "@fullhuman/postcss-purgecss": "^2.0.6",
     "@rollup/plugin-commonjs": "^11.0.1",
     "@rollup/plugin-html": "^0.1.1",
-    "@rollup/plugin-image": "^2.0.4",
+    "@rollup/plugin-json": "^4.0.2",
     "@rollup/plugin-node-resolve": "^7.0.0",
     "@rollup/plugin-replace": "^2.3.0",
-    "@rollup/plugin-typescript": "^3.0.0",
     "concurrently": "^5.1.0",
     "cssnano": "^4.1.10",
     "ejs": "^3.0.1",
@@ -26,7 +28,6 @@
     "rimraf": "^3.0.1",
     "rollup": "^1.31.0",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-gzip": "^2.3.0",
     "rollup-plugin-postcss": "^2.0.5",
     "rollup-plugin-uglify": "^6.0.4",
     "tailwindcss": "^1.1.4",

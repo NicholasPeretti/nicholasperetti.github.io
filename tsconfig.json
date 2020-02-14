@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./.ts-tmp/",
     "sourceMap": true,
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "module": "esnext",
     "target": "es6",
     "jsx": "react",
     "jsxFactory": "h",
-    "types": [],
-  }
+    "resolveJsonModule": true,
+    "composite": true,
+    "baseUrl": "./",
+    "rootDir": "./"
+  },
 }
