@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./.ts-tmp/",
     "sourceMap": true,
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
@@ -9,6 +9,9 @@
     "target": "es6",
     "jsx": "react",
     "jsxFactory": "h",
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+    "composite": true,
+    "baseUrl": "./",
+    "rootDir": "./"
+  },
 }
