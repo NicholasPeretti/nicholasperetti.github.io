@@ -1,7 +1,7 @@
 import rimraf from 'rimraf'
+import pkg from './package.json'
 
 //  Rollup plugins
-import typescript from '@rollup/plugin-typescript'
 import babel from 'rollup-plugin-babel'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
@@ -12,14 +12,19 @@ import purgecss from '@fullhuman/postcss-purgecss'
 import cssnano from 'cssnano'
 import { uglify } from 'rollup-plugin-uglify'
 import html from '@rollup/plugin-html'
-import gzipPlugin from 'rollup-plugin-gzip'
 
 //  Custom plugins and helper functions
-import renderHtmlTemplate from './lib/renderHtmlTemplate'
-import copyStaticAssets from './lib/copyStaticAssets'
+import typescript from './lib/simple-ts'
+import renderHtmlTemplate from './lib/render-html-template'
+import copyStaticAssets from './lib/copy-static-assets'
+import resourceList from './lib/resource-list'
+import constPlugin from './lib/const-plugin'
+import assetTransformPlugin from './lib/filenames-transform-plugin'
+import { removeHash } from './lib/build-utils'
 
 const outputDir = 'dist'
 rimraf.sync(outputDir)
+rimraf.sync('.ts-tmp')
 
 export default [
   buildWebApp({
@@ -30,18 +35,17 @@ export default [
 function buildWebApp({ isProd }) {
   return {
     input: {
-      index: 'src/index.tsx',
+      index: 'src/main/index.tsx',
       sw: 'src/sw/index.ts',
     },
     output: {
       dir: outputDir,
       chunkFileNames: '[name]-[hash].js',
-      chunkFileNames: '[name]-[hash].js',
       entryFileNames: '[name]-[hash].js',
     },
     plugins: [
       //  Parse typescript
-      typescript(),
+      typescript('./src/main/', { watch: !isProd }),
 
       //  Transpile to ES5
       babel(),
@@ -76,8 +80,36 @@ function buildWebApp({ isProd }) {
 
       //  Copy assets
       copyStaticAssets({
-        assets: ['./src/assets/'],
+        assets: ['./src/main/assets/'],
       }),
+
+      //  Remove hash from the manifest.json file
+      assetTransformPlugin(asset => {
+        if (
+          asset.fileName.includes('manifest-') ||
+          asset.fileName.includes('sw-')
+        ) {
+          // Remove name hashing
+          asset.fileName = removeHash(asset.fileName)
+
+          // Move the file to the root if it's the manifest.json file
+          if (asset.fileName.includes('manifest.json')) {
+            asset.fileName = asset.fileName.replace('assets/', '')
+          }
+        }
+        if (asset.fileName.endsWith('.json')) {
+          // Minify
+          asset.source = JSON.stringify(JSON.parse(asset.source))
+        }
+      }),
+
+      //  Provide constants
+      constPlugin({
+        version: pkg.version,
+      }),
+
+      //  Provide generated files into the code
+      resourceList(),
 
       //  Generate index.html
       html({
@@ -86,9 +118,6 @@ function buildWebApp({ isProd }) {
           return renderHtmlTemplate('src/template.ejs', variables)
         },
       }),
-
-      //  gzip
-      gzipPlugin(),
     ],
   }
 }

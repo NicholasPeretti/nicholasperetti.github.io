@@ -1,18 +1,17 @@
 declare var self: ServiceWorkerGlobalScope
 export {}
 
-const resourceList: Array<any> = []
-import { version } from '../../package.json'
+import resourceList from 'resource-list:'
+import version from 'consts:version'
 
 const CACHE_NAME = `static-cache-${version}`
 
 self.addEventListener('install', event => {
   const resourcesToCache = resourceList.filter(
-    file => file !== 'sw.js' && file !== 'manifest.json'
+    //  Don't cache service worker and manifest
+    file => !file.includes('sw') && !file.includes('manifest')
   )
   const toCache = ['/', ...resourcesToCache]
-
-  console.log('caching', toCache, resourceList)
 
   event.waitUntil(
     (async function() {

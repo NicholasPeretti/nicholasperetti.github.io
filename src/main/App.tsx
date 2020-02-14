@@ -52,11 +52,7 @@ export default function App() {
             colleagues that helped me along the way.
           </p>
           <div className="bg-gray-300 px-5 py-1 mb-5">
-            <img
-              src="images/auto1.png"
-              alt="auto1 logo"
-              className="company-logo"
-            />
+            <Title>Auto 1</Title>
             <p>
               In Auto1 I’ve been able to work with some amazing people from all
               over the world. This kind of experience allowed me to share my
