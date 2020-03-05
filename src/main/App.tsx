@@ -116,6 +116,13 @@ export default function App() {
                   This personal portforlio
                 </Link>
               </li>
+              <li>
+                <Link href="https://github.com/NicholasPeretti/tetris">
+                  Tetris
+                </Link>
+                &nbsp;(
+                <Link href="https://the-tetris.netlify.com/">play it</Link>)
+              </li>
             </ul>
           </p>
           <Title>Contacts</Title>
