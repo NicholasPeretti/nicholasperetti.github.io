@@ -40,7 +40,15 @@ export default function Background({ children }: Props) {
   const { width, height } = useWindowSize()
 
   useEffect(() => {
-    let comet = new Comet(0, height / 2, 0, 0)
+    //  Don't run this effect if the canvas is not ready yet
+    if (!canvasRef.current) return
+
+    const canvas = canvasRef.current
+    const ctx: CanvasRenderingContext2D = canvas.getContext('2d')
+    setUpCanvas(canvas, {
+      width,
+      height,
+    })
 
     //  I want a star every 3px
     const numberOfStarts = Math.floor(width / 3)
@@ -51,47 +59,34 @@ export default function Background({ children }: Props) {
       .map(() => createRandomStar(width, height))
 
     //  Fire a comet every 5 seconds
+    let comet = new Comet(0, height / 2, 0, 0)
     const cometInterval = setInterval(() => {
       if (!comet.isVisibleOnScreen(width, height)) {
-        comet.setVelocities(
-          (Math.random() - 0.5) * (90 - 70) + 70,
-          (Math.random() - 0.5) * (9 - 7) + 7
-        )
+        //  Put comet offscreen and assign
+        //  random velocity
         comet.reset()
       }
     }, 5000)
 
+    //  Store the next raf ref in order to clean it later
+    let raf: number = null
+
     //  Clear the canvas and re-draw every item
     const drawBackground = () => {
-      const canvas = canvasRef.current
-      const ctx: CanvasRenderingContext2D = canvas.getContext('2d')
-
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       stars.forEach(star => {
         star.draw(ctx)
       })
       comet.draw(ctx)
 
-      return window.requestAnimationFrame(drawBackground)
+      raf = window.requestAnimationFrame(drawBackground)
     }
 
-    if (canvasRef.current) {
-      const canvas = canvasRef.current
-      const ctx: CanvasRenderingContext2D = canvas.getContext('2d')
+    drawBackground()
 
-      //  Setting canvas for retina displays
-      canvas.width = width * 2
-      canvas.height = height * 2
-      canvas.style.width = width
-      canvas.style.height = height
-      ctx.scale(2, 2)
-
-      const raf = drawBackground()
-
-      return () => {
-        window.cancelAnimationFrame(raf)
-        clearInterval(cometInterval)
-      }
+    return () => {
+      window.cancelAnimationFrame(raf)
+      clearInterval(cometInterval)
     }
   }, [width])
 
@@ -101,4 +96,20 @@ export default function Background({ children }: Props) {
       {children}
     </Fragment>
   )
+}
+
+//  Sets the resolution of the canvas for retina display
+function setUpCanvas(
+  canvas: HTMLCanvasElement,
+  opt: {
+    width: number
+    height: number
+  }
+) {
+  const ctx = canvas.getContext('2d')
+  canvas.width = opt.width * 2
+  canvas.height = opt.height * 2
+  canvas.style.width = `${opt.width}`
+  canvas.style.height = `${opt.height}`
+  ctx.scale(2, 2)
 }
