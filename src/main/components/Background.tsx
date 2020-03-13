@@ -61,6 +61,9 @@ export default function Background({ children }: Props) {
       }
     }, 5000)
 
+    //  Store the next raf ref in order to clean it later
+    let raf: number = null
+
     //  Clear the canvas and re-draw every item
     const drawBackground = () => {
       const canvas = canvasRef.current
@@ -72,7 +75,7 @@ export default function Background({ children }: Props) {
       })
       comet.draw(ctx)
 
-      return window.requestAnimationFrame(drawBackground)
+      raf = window.requestAnimationFrame(drawBackground)
     }
 
     if (canvasRef.current) {
@@ -86,7 +89,7 @@ export default function Background({ children }: Props) {
       canvas.style.height = height
       ctx.scale(2, 2)
 
-      const raf = drawBackground()
+      drawBackground()
 
       return () => {
         window.cancelAnimationFrame(raf)
