@@ -45,6 +45,13 @@ export default class Comet {
   reset() {
     this.x = this.originX * Math.random()
     this.y = this.originY * Math.random()
+    this.setVelocities(
+      //  Velocity of the X axis
+      (Math.random() - 0.5) * (90 - 70) + 70,
+
+      //  Velocity of the Y axis
+      (Math.random() - 0.5) * (9 - 7) + 7
+    )
   }
 
   isVisibleOnScreen(windowWith: number, windowHeight: number) {
