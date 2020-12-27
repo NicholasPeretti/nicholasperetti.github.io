@@ -1,65 +1,107 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import WorkExperienceTag from "../components/WorkExperienceTag";
+import RoundedImage from "../components/RoundedImage";
+import Link from "../components/Link";
+import PreviewLink from "../components/PreviewLink";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div>
+      <header className="h-screen lg:h-auto flex flex-col justify-around appear-in">
+        <div className="text-center text-white md:py-20 font-thin tracking-widest">
+          <div className="flex justify-center mb-5">
+            <RoundedImage src="/profile-1.jpg" size={200} />
+          </div>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          <h1 className="text-4xl font-sans">Nicholas Peretti</h1>
+          <div className="flex flex-row justify-center">
+            <div className="w-1/3 lg:w-1/6 flex flex-col justify-center items-end">
+              <hr className="w-full stretch-in" />
+            </div>
+            <div className="px-3 rotate-in">&#10005;</div>
+            <div className="w-1/3 lg:w-1/6 flex flex-col justify-center">
+              <hr className="w-full stretch-in" />
+            </div>
+          </div>
+          <p className="text-base font-sans xs:text-3xl md:text-base">
+            Frontend engineer
+          </p>
         </div>
-      </main>
+      </header>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <div className="container mx-auto xl:w-2/3 text-white px-10 flex flex-col md:flex-row">
+        <section className="md:w-1/2 lg:w-1/3">
+          <h2 className="text-3xl mb-5">Work experiences</h2>
+          <WorkExperienceTag
+            company="eBay - mobile.de"
+            jobTitle="Senior Frontend Engineer"
+            imageSrc="/ebay.jpg"
+            startDate={new Date("2020-07-01")}
+          />
+          <WorkExperienceTag
+            company="Auto1"
+            jobTitle="Senior Frontend Engineer"
+            imageSrc="/auto1.png"
+            endDate={new Date("2020-03-30")}
+            startDate={new Date("2019-02-01")}
+          />
+          <WorkExperienceTag
+            company="CyBrain"
+            jobTitle="Full Stack Javascript Engineer"
+            imageSrc="/cybrain.jpg"
+            endDate={new Date("2019-01-30")}
+            startDate={new Date("2017-05-01")}
+          />
+          <WorkExperienceTag
+            company="Interplanet"
+            jobTitle="Junior Full Stack Engineer"
+            imageSrc="/iplanet.png"
+            endDate={new Date("2017-04-30")}
+            startDate={new Date("2015-10-01")}
+          />
+        </section>
+
+        <div className="flex flex-col md:w-1/2 lg:w-2/3 md:ml-10">
+          <section className="mb-5">
+            <h2 className="text-3xl mb-5">About me</h2>
+            <div className="font-sans font-extralight">
+              <p className="mb-3">
+                I'm a passionate frontend developer focused on delivering the
+                best user experience.
+              </p>
+              <p className="mb-3">
+                If you want to have a chat with me about code, career
+                opportunities or anything else, feel free to contact me!
+                <br />
+                You can drop an email to{" "}
+                <Link href="mailto:peretti.nicholas@gmail.com">
+                  peretti.nicholas@gmail.com
+                </Link>
+                , I'll replay as soon as I can!
+              </p>
+            </div>
+          </section>
+          <section>
+            <h2 className="text-3xl mb-5">Check my work on</h2>
+            <div className="flex flex-row flex-wrap">
+              <PreviewLink
+                imgSrc="/github-preview.png"
+                href="https://github.com/NicholasPeretti"
+                title="GitHub"
+              />
+              <PreviewLink
+                imgSrc="/linkedin-statistiken.jpg"
+                href="https://www.linkedin.com/in/nicholas-peretti-210aa6130/"
+                title="LinkedIn"
+              />
+              <PreviewLink
+                imgSrc="/twitter-preview.jpg"
+                href="https://twitter.com/NicholasPeretti"
+                title="Twitter"
+              />
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
