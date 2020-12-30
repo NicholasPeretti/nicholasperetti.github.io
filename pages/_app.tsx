@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="twitter:site" content="@NicholasPeretti" />
         <meta name="twitter:title" content={socialMeta.title} />
         <meta name="twitter:description" content={socialMeta.description} />
-        <meta name="twitter:image" content={socialMeta.coverImage} />
+        <meta name="twitter:image" content="/profile-1.jpb" />
       </Head>
       <SpaceBackground />
       <Component {...pageProps} />
