@@ -12,7 +12,11 @@ export default function Home() {
       <header className="h-screen lg:h-auto flex flex-col justify-around appear-in">
         <div className="text-center text-white md:py-20 font-thin tracking-widest">
           <div className="flex justify-center mb-5">
-            <RoundedImage src="/profile-1.jpg" alt="Nicholas profile picture" size={200} />
+            <RoundedImage
+              src="/profile-1.jpg"
+              alt="Nicholas profile picture"
+              size={200}
+            />
           </div>
 
           <h1 className="text-4xl font-sans">Nicholas Peretti</h1>
@@ -25,14 +29,14 @@ export default function Home() {
               <hr className="w-full stretch-in" />
             </div>
           </div>
-          <p className="text-base font-sans xs:text-3xl md:text-base">
+          <p className="text-base font-sans xs:text-3xl md:text-base font-light">
             Frontend engineer
           </p>
         </div>
       </header>
 
       <div className="container mx-auto xl:w-2/3 text-white px-10 flex flex-col md:flex-row">
-        <section className="md:w-1/2 lg:w-1/3">
+        <section className="md:w-1/2 lg:w-1/3 mb-10">
           <h2 className="text-3xl mb-5">Work experiences</h2>
           <WorkExperienceTag
             company="eBay - mobile.de"
@@ -61,13 +65,15 @@ export default function Home() {
             endDate={new Date("2017-04-30")}
             startDate={new Date("2015-10-01")}
           />
-          <Link href="/">Find out more on my LinkedIn</Link>
+          <span className="font-light">
+            <Link href="/">Find out more on my LinkedIn &#8594;</Link>
+          </span>
         </section>
 
         <div className="flex flex-col md:w-1/2 lg:w-2/3 md:ml-10">
           <section className="mb-5">
             <h2 className="text-3xl mb-5">About me</h2>
-            <div className="font-sans font-extralight">
+            <div className="font-sans font-light">
               <p className="mb-3">
                 I'm a passionate frontend developer focused on delivering the
                 best user experience.
