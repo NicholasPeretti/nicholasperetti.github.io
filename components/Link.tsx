@@ -1,4 +1,9 @@
-export default function Link({ href, children }) {
+type LinkProps = {
+  href: string;
+  children?: any;
+};
+
+export default function Link({ href, children }: LinkProps) {
   return (
     <a
       href={href}

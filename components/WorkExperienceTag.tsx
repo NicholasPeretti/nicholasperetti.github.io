@@ -1,16 +1,24 @@
 import RoundedImage from "./RoundedImage";
 import { format, formatDuration, differenceInMonths } from "date-fns";
 
+type WorkExperienceTagProps = {
+  company: string;
+  jobTitle: string;
+  imageSrc: string;
+  startDate: Date;
+  endDate?: Date;
+};
+
 export default function WorkExperienceTag({
   company,
   jobTitle,
   imageSrc,
   startDate,
   endDate,
-}) {
+}: WorkExperienceTagProps) {
   const durationInMonths = differenceInMonths(endDate || new Date(), startDate);
-  const years = parseInt(durationInMonths / 12);
-  const months = parseInt(durationInMonths % 12);
+  const years = Math.floor(durationInMonths / 12);
+  const months = Math.floor(durationInMonths % 12);
 
   return (
     <div className="flex place-items-start mb-10">
