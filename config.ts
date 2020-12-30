@@ -10,4 +10,9 @@ export default {
     twitter: "https://twitter.com/NicholasPeretti",
     github: "https://github.com/NicholasPeretti",
   },
+  socialMeta: {
+    title: "Nicholas Peretti",
+    coverImage: "/social-cover.jpg",
+    description: "Nicholas Peretti's personal website – Nicholas is a frond-end engineer, highly focused on creating amazing user experiences"
+  }
 };
