@@ -1,39 +1,24 @@
 {
-  "name": "personal-portfolio",
-  "version": "1.0.2",
-  "main": "index.js",
-  "license": "MIT",
+  "name": "nicholasperetti.github.io",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "gzip": "gzip -k9nr dist",
-    "build": "NODE_ENV='production' rollup -c && yarn gzip",
-    "serve": "http-server dist -p 80 -c-1 -g",
-    "watch": "rollup -c -w",
-    "start": "concurrently \"yarn watch\" \"yarn serve\""
-  },
-  "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "@fullhuman/postcss-purgecss": "^2.0.6",
-    "@rollup/plugin-commonjs": "^11.0.1",
-    "@rollup/plugin-html": "^0.1.1",
-    "@rollup/plugin-json": "^4.0.2",
-    "@rollup/plugin-node-resolve": "^7.0.0",
-    "@rollup/plugin-replace": "^2.3.0",
-    "concurrently": "^5.1.0",
-    "cssnano": "^4.1.10",
-    "ejs": "^3.0.1",
-    "fs-extra": "^8.1.0",
-    "http-server": "^0.12.1",
-    "prettier": "^1.19.1",
-    "rimraf": "^3.0.1",
-    "rollup": "^1.31.0",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-postcss": "^2.0.5",
-    "rollup-plugin-uglify": "^6.0.4",
-    "tailwindcss": "^1.1.4",
-    "typescript": "^3.7.5"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
-    "preact": "^10.2.1"
+    "autoprefixer": "^10.1.0",
+    "date-fns": "^2.16.1",
+    "next": "10.0.3",
+    "postcss": "^8.2.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "tailwindcss": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.16",
+    "@types/react": "^17.0.0",
+    "typescript": "^4.1.3"
   }
 }

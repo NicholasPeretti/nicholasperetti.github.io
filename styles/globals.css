@@ -1,0 +1,55 @@
+body {
+  background-color: #003447;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/OpenSans-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/OpenSans-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@keyframes appear-in-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes stretch-in-animation {
+  0% {
+    max-width: 0px;
+  }
+  100% {
+    max-width: 100%;
+  }
+}
+
+@keyframes rotate-in-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.stretch-in {
+  animation: stretch-in-animation 2s;
+}
+
+.rotate-in {
+  animation: rotate-in-animation 2s;
+}
+
+.appear-in {
+  animation: appear-in-animation 1s;
+}
