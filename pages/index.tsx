@@ -2,6 +2,9 @@ import WorkExperienceTag from "../components/WorkExperienceTag";
 import RoundedImage from "../components/RoundedImage";
 import Link from "../components/Link";
 import PreviewLink from "../components/PreviewLink";
+import config from "../config";
+
+const { urls } = config;
 
 export default function Home() {
   return (
@@ -9,7 +12,7 @@ export default function Home() {
       <header className="h-screen lg:h-auto flex flex-col justify-around appear-in">
         <div className="text-center text-white md:py-20 font-thin tracking-widest">
           <div className="flex justify-center mb-5">
-            <RoundedImage src="/profile-1.jpg" size={200} />
+            <RoundedImage src="/profile-1.jpg" alt="Nicholas profile picture" size={200} />
           </div>
 
           <h1 className="text-4xl font-sans">Nicholas Peretti</h1>
@@ -58,6 +61,7 @@ export default function Home() {
             endDate={new Date("2017-04-30")}
             startDate={new Date("2015-10-01")}
           />
+          <Link href="/">Find out more on my LinkedIn</Link>
         </section>
 
         <div className="flex flex-col md:w-1/2 lg:w-2/3 md:ml-10">
@@ -81,21 +85,21 @@ export default function Home() {
             </div>
           </section>
           <section>
-            <h2 className="text-3xl mb-5">Check my work on</h2>
+            <h2 className="text-3xl mb-5">More about me on</h2>
             <div className="flex flex-row flex-wrap">
               <PreviewLink
                 imgSrc="/github-preview.png"
-                href="https://github.com/NicholasPeretti"
+                href={urls.github}
                 title="GitHub"
               />
               <PreviewLink
                 imgSrc="/linkedin-statistiken.jpg"
-                href="https://www.linkedin.com/in/nicholas-peretti-210aa6130/"
+                href={urls.linkedin}
                 title="LinkedIn"
               />
               <PreviewLink
                 imgSrc="/twitter-preview.jpg"
-                href="https://twitter.com/NicholasPeretti"
+                href={urls.twitter}
                 title="Twitter"
               />
             </div>

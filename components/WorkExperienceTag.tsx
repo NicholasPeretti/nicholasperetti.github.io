@@ -22,7 +22,11 @@ export default function WorkExperienceTag({
 
   return (
     <div className="flex place-items-start mb-10">
-      <RoundedImage src={imageSrc} size={70}></RoundedImage>
+      <RoundedImage
+        src={imageSrc}
+        size={70}
+        alt={`${company} logo`}
+      ></RoundedImage>
       <div className="pl-5 flex-1">
         <h3 className="text-xl">{company}</h3>
         <p className="font-light">{jobTitle}</p>
