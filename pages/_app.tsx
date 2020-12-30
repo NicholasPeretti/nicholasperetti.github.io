@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="manifest" href="/site.webmanifest"/>
         <meta name="msapplication-TileColor" content="#003447"/>
         <meta name="theme-color" content="#ffffff" />
-        <meta name="image" property="og:image" content="/social-cover.png" />
+        <meta name="image" property="og:image" content="/social-cover.jpg" />
         <meta property="og:type" content="Profile" />
       </Head>
       <SpaceBackground /> 
