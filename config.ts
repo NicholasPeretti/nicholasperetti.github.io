@@ -13,6 +13,6 @@ export default {
   socialMeta: {
     title: "Nicholas Peretti",
     coverImage: "/social-cover.jpg",
-    description: "Nicholas Peretti's personal website – Nicholas is a frond-end engineer, highly focused on creating amazing user experiences"
+    description: "Nicholas Peretti's personal website – Nicholas is a frontend engineer, highly focused on creating amazing user experiences"
   }
 };
