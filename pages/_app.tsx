@@ -47,6 +47,22 @@ function MyApp({ Component, pageProps }) {
         <meta name="twitter:title" content={socialMeta.title} />
         <meta name="twitter:description" content={socialMeta.description} />
         <meta name="twitter:image" content="/profile-1.jpg" />
+
+        {/* Global site tag (gtag.js) - Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-HWSJGBFBCP"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-HWSJGBFBCP');`,
+          }}
+        />
       </Head>
       <SpaceBackground />
       <Component {...pageProps} />
