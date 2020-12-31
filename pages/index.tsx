@@ -66,7 +66,7 @@ export default function Home() {
             startDate={new Date("2015-10-01")}
           />
           <span className="font-light">
-            <Link href="/">Find out more on my LinkedIn &#8594;</Link>
+            <Link href={urls.linkedin}>Find out more on my LinkedIn &#8594;</Link>
           </span>
         </section>
 
