@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poppins:wght@700&display=swap");
+
+body {
+  background-color: #1e1e1e;
+  color: white;
+  font-family: Poppins;
+}
+
+input,
+textarea {
+  background: transparent;
+  border: 1px solid #555;
+  padding: 10px;
+}
