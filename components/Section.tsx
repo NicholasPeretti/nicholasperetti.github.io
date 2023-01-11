@@ -23,7 +23,7 @@ export default function Section({
         }
       )}
     >
-      <div className="flex items-center justify-center w-[220px] md:w-[450px] md:h-[50vh] mt-[20px] min-h-[]">
+      <div className="flex items-center justify-center w-[220px] md:w-[450px] md:h-[50vh] mt-[40px] min-h-[]">
         {illustration}
       </div>
       <div
