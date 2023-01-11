@@ -10,7 +10,7 @@ import SvgUxOriented from "../components/SvgUxOriented";
 
 export default function Home() {
   return (
-    <>
+    <div className="h-full w-full">
       <Head>
         <title>Nicholas Peretti</title>
         <meta name="description" content="Personal website" />
@@ -27,15 +27,15 @@ export default function Home() {
               Frontend engineer<span className="animate-blink">_</span>
             </p>
           </div>
-          <SvgArrowDown className="mb-[50px] w-[50px] animate-bounce" />
+          <SvgArrowDown className="mb-[150px] w-[50px] animate-bounce" />
         </header>
         <Section
           title="UX oriented"
           illustration={<SvgUxOriented className="w-full h-full" />}
         >
-          As a user myself, I really appreciate a good user experience.
-          Therefore I like to work closely with designers from the ideation
-          process, to the mockup finishing touches.
+          {
+            "I really appreciate a good user experience. Therefore I like to work closely with designers from the ideation process to the mockup's finishing touches."
+          }
         </Section>
         <Section
           reverse={true}
@@ -63,8 +63,9 @@ export default function Home() {
           illustration={<SvgReferences className="w-full h-full" />}
         >
           {`I've been working as a software engineer since 2015. I started out as
-          a full-stack developer and I've been focusing on frontend since 2019.`} 
-          <br/><br/>
+          a full-stack developer and I've been focusing on frontend since 2019.`}
+          <br />
+          <br />
           {`You
           can take a look at my work experience `}
           <a
@@ -132,6 +133,6 @@ export default function Home() {
           </form>
         </Section>
       </div>
-    </>
+    </div>
   );
 }
