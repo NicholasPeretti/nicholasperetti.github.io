@@ -16,7 +16,7 @@ export default function Section({
   return (
     <section
       className={cns(
-        `w-screen min-h-screen flex flex-col justify-center md:justify-start lg:justify-center items-center px-[20px] md:px-[40px] snap-start container mx-auto`,
+        `w-full min-h-screen flex flex-col justify-center md:justify-start lg:justify-center items-center px-[20px] md:px-[40px] snap-start container mx-auto`,
         {
           "lg:flex-row-reverse": reverse,
           "lg:flex-row": !reverse,

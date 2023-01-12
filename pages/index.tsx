@@ -18,8 +18,8 @@ export default function Home() {
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <div className="snap-y snap-mandatory w-screen h-screen overflow-y-scroll">
-        <header className="flex flex-col w-screen justify-between items-center h-screen overflow-x-hidden snap-start">
+      <div className="snap-y snap-mandatory w-full h-screen overflow-y-scroll">
+        <header className="flex flex-col w-full justify-between items-center h-screen overflow-x-hidden snap-start">
           <div className="flex flex-col mt-[150px]">
             <h1 className="text-[40px] w-fit font-bold bg-gradient-animation mb-[-15px] md:text-[60px] xl:text-[100px]">
               Nicholas Peretti
