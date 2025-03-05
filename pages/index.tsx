@@ -10,25 +10,34 @@ import SvgUxOriented from "../components/SvgUxOriented";
 
 export default function Home() {
   return (
-    <div className="h-full w-full">
+    <>
       <Head>
         <title>Nicholas Peretti</title>
-        <meta name="description" content="Nicholas Peretti, frontend engineer" />
+        <meta
+          name="description"
+          content="Nicholas Peretti, frontend engineer"
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <div className="snap-y snap-mandatory w-full h-screen overflow-y-scroll">
+      <div className="snap-y snap-mandatory w-full h-full fixed overflow-y-scroll">
         <header className="flex flex-col w-full justify-between items-center h-screen overflow-x-hidden snap-start">
           <div className="flex flex-col mt-[150px]">
             <h1 className="text-[40px] w-fit font-bold bg-gradient-animation mb-[-15px] md:text-[60px] xl:text-[100px]">
               Nicholas Peretti
             </h1>
             <p className="text-[18px] md:text-[30px] xl:text-[50px] font-extralight">
-              Frontend engineer<span className="animate-blink" aria-hidden>_</span>
+              Frontend engineer
+              <span className="animate-blink" aria-hidden>
+                _
+              </span>
             </p>
           </div>
-          <SvgArrowDown className="mb-[150px] w-[50px] animate-bounce" aria-hidden />
+          <SvgArrowDown
+            className="mb-[150px] w-[50px] animate-bounce"
+            aria-hidden
+          />
         </header>
         <main>
           <Section
@@ -136,6 +145,6 @@ export default function Home() {
           </Section>
         </main>
       </div>
-    </div>
+    </>
   );
 }

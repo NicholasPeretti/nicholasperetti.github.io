@@ -16,14 +16,14 @@ export default function Section({
   return (
     <section
       className={cns(
-        `w-full min-h-screen flex flex-col justify-center md:justify-start lg:justify-center items-center px-[20px] md:px-[40px] snap-start container mx-auto`,
+        `w-screen h-svh flex flex-col justify-center md:justify-start lg:justify-center items-center px-[20px] md:px-[40px] snap-start container mx-auto`,
         {
           "lg:flex-row-reverse": reverse,
           "lg:flex-row": !reverse,
         }
       )}
     >
-      <div className="flex items-center justify-center w-[220px] md:w-[450px] md:h-[50vh] mt-[40px] min-h-[]" aria-hidden>
+      <div className="flex items-center justify-center w-[220px] md:w-[450px] md:h-[40vh] mt-[40px] min-h-[]" aria-hidden>
         {illustration}
       </div>
       <div
